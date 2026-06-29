@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raven AI - Open-source AI infrastructure</title>
+  <meta name="description" content="Raven AI is an open-source biology and healthcare agent platform by Barry Clerjuste." />
+  <style>
+    :root { --bg:#05060A; --panel:#0D1117; --ink:#F4F4F5; --muted:#8B949E; --red:#C8102E; --line:#21262D; }
+    * { box-sizing: border-box; }
+    body { margin:0; background: radial-gradient(circle at 18% 12%, #260713 0, #05060A 38%, #000 100%); color:var(--ink); font-family: Avenir Next, Segoe UI, Helvetica, Arial, sans-serif; }
+    a { color: inherit; }
+    .wrap { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
+    header { padding:32px 0 10px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:14px; font-weight:800; letter-spacing:.08em; }
+    .brand img { width:44px; height:44px; border-radius:12px; }
+    nav { display:flex; gap:18px; color:var(--muted); font-size:14px; }
+    .hero { padding:72px 0 84px; display:grid; grid-template-columns:1.08fr .92fr; gap:48px; align-items:center; }
+    .eyebrow { color:var(--red); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing:.18em; font-size:13px; }
+    h1 { margin:16px 0; font-size: clamp(46px, 8vw, 88px); line-height:.94; letter-spacing:-.06em; }
+    p { color:#C9D1D9; line-height:1.7; font-size:18px; }
+    .cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .btn { padding:13px 18px; border:1px solid var(--line); border-radius:999px; text-decoration:none; background:#0D1117; }
+    .btn.primary { background:var(--red); border-color:var(--red); color:white; }
+    .visual { border:1px solid var(--line); border-radius:28px; background:linear-gradient(145deg,#0D1117,#05060A); overflow:hidden; box-shadow:0 30px 90px rgba(200,16,46,.15); }
+    .visual img { width:100%; display:block; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:30px 0 80px; }
+    .card { background:rgba(13,17,23,.72); border:1px solid var(--line); border-radius:22px; padding:24px; min-height:190px; }
+    .card h3 { margin:0 0 10px; font-size:20px; }
+    .card p { font-size:15px; color:var(--muted); }
+    .section { padding:22px 0 80px; }
+    .section h2 { font-size:36px; margin:0 0 18px; letter-spacing:-.03em; }
+    footer { border-top:1px solid var(--line); color:var(--muted); padding:28px 0 40px; font-size:14px; }
+    @media(max-width:850px) { .hero,.grid { grid-template-columns:1fr; } nav { display:none; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><img src="assets/raven-logo.svg" alt="Raven AI logo"/> RAVEN AI</div>
+      <nav><a href="https://github.com/simpliibarrii-crypto/raven-ai">Raven</a><a href="https://github.com/simpliibarrii-crypto/openclinical-ai">Clinical</a><a href="https://github.com/simpliibarrii-crypto/home-for-ai">Home for AI</a></nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">AGENTIC AI · COMPUTATIONAL BIOLOGY · HEALTHCARE SYSTEMS</div>
+          <h1>Open-source infrastructure for scientific AI.</h1>
+          <p>Raven AI is a biology and healthcare agent platform built for researchers, labs, startups, classrooms, and clinical teams that need affordable, inspectable, reproducible AI systems.</p>
+          <div class="cta"><a class="btn primary" href="https://github.com/simpliibarrii-crypto/raven-ai">Explore Raven AI</a><a class="btn" href="https://github.com/simpliibarrii-crypto">GitHub profile</a></div>
+        </div>
+        <div class="visual"><img src="assets/dna-raven-mark.svg" alt="DNA and Raven visual identity"/></div>
+      </section>
+      <section class="grid">
+        <article class="card"><h3>Raven Bio</h3><p>Agents for genomics, transcriptomics, protein structure, literature grounding, protocols, and reproducible workflows.</p></article>
+        <article class="card"><h3>Raven Clinical</h3><p>PHI-aware deployment infrastructure, consent, audit logs, evidence retrieval, calculators, and healthcare governance.</p></article>
+        <article class="card"><h3>Home for AI</h3><p>A local-first orchestration environment for running agent workflows across desktop, edge, and private infrastructure.</p></article>
+      </section>
+      <section class="section"><h2>Built for trust, not demos.</h2><p>Every part of the ecosystem is moving toward evidence-linked outputs, provenance trails, issue templates, contribution guidelines, CI, architecture docs, and a coherent research-lab identity.</p></section>
+    </main>
+    <footer>© 2026 Barry Clerjuste. Raven AI is open-source research infrastructure.</footer>
+  </div>
+</body>
+</html>
