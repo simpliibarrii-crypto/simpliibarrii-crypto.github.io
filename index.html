@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Raven AI - Open-source AI infrastructure</title>
   <meta name="description" content="Raven AI is an open-source biology and healthcare agent platform by Barry Clerjuste." />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦‍⬛</text></svg>">
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Raven AI - Open-source AI infrastructure" />
+  <meta property="og:description" content="Raven AI is an open-source biology and healthcare agent platform built for researchers, labs, startups, classrooms, and clinical teams." />
+  <meta property="og:url" content="https://simpliibarrii-crypto.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://simpliibarrii-crypto.github.io/assets/raven-logo.svg" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Raven AI - Open-source AI infrastructure" />
+  <meta name="twitter:description" content="Raven AI is an open-source biology and healthcare agent platform built for researchers, labs, startups, classrooms, and clinical teams." />
+  <meta name="twitter:image" content="https://simpliibarrii-crypto.github.io/assets/raven-logo.svg" />
   <style>
     :root { --bg:#05060A; --panel:#0D1117; --ink:#F4F4F5; --muted:#8B949E; --red:#C8102E; --line:#21262D; }
     * { box-sizing: border-box; }
@@ -15,6 +28,12 @@
     .brand { display:flex; align-items:center; gap:14px; font-weight:800; letter-spacing:.08em; }
     .brand img { width:44px; height:44px; border-radius:12px; }
     nav { display:flex; gap:18px; color:var(--muted); font-size:14px; }
+    /* Hamburger button — hidden by default */
+    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:22px; height:2px; background:var(--ink); border-radius:2px; transition:transform .2s; }
+    /* Mobile nav — hidden by default */
+    .mobile-nav { display:none; flex-direction:column; gap:12px; padding:16px 0; color:var(--muted); font-size:14px; border-top:1px solid var(--line); }
+    .mobile-nav a { text-decoration:none; }
     .hero { padding:72px 0 84px; display:grid; grid-template-columns:1.08fr .92fr; gap:48px; align-items:center; }
     .eyebrow { color:var(--red); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing:.18em; font-size:13px; }
     h1 { margin:16px 0; font-size: clamp(46px, 8vw, 88px); line-height:.94; letter-spacing:-.06em; }
@@ -31,15 +50,22 @@
     .section { padding:22px 0 80px; }
     .section h2 { font-size:36px; margin:0 0 18px; letter-spacing:-.03em; }
     footer { border-top:1px solid var(--line); color:var(--muted); padding:28px 0 40px; font-size:14px; }
-    @media(max-width:850px) { .hero,.grid { grid-template-columns:1fr; } nav { display:none; } }
+    @media(max-width:850px) {
+      .hero,.grid { grid-template-columns:1fr; }
+      nav.desktop-nav { display:none; }
+      .hamburger { display:flex; }
+      .mobile-nav.open { display:flex; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand"><img src="assets/raven-logo.svg" alt="Raven AI logo"/> RAVEN AI</div>
-      <nav><a href="https://github.com/simpliibarrii-crypto/raven-ai">Raven</a><a href="https://github.com/simpliibarrii-crypto/openclinical-ai">Clinical</a><a href="https://github.com/simpliibarrii-crypto/home-for-ai">Home for AI</a></nav>
+      <nav class="desktop-nav"><a href="https://github.com/simpliibarrii-crypto/raven-ai">Raven</a><a href="https://github.com/simpliibarrii-crypto/openclinical-ai">Clinical</a><a href="https://github.com/simpliibarrii-crypto/home-for-ai">Home for AI</a></nav>
+      <button class="hamburger" aria-label="Toggle navigation" onclick="this.classList.toggle('active');document.querySelector('.mobile-nav').classList.toggle('open')"><span></span><span></span><span></span></button>
     </header>
+    <nav class="mobile-nav"><a href="https://github.com/simpliibarrii-crypto/raven-ai">Raven</a><a href="https://github.com/simpliibarrii-crypto/openclinical-ai">Clinical</a><a href="https://github.com/simpliibarrii-crypto/home-for-ai">Home for AI</a></nav>
     <main>
       <section class="hero">
         <div>
