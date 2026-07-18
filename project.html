@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070707" />
+  <title>Project Case Study | Barry Clerjuste</title>
+  <meta name="description" content="Interactive AI engineering case study and browser demonstration by Barry Clerjuste." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body data-page="project">
+  <a class="skip-link" href="#main">Skip to content</a><div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="identity" href="index.html"><span class="identity-mark">BC</span><span class="identity-copy"><strong>Barry Clerjuste</strong><small>AI Engineer</small></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html#work">Work</a><a href="research.html">Research</a><a href="index.html#approach">Approach</a><a href="index.html#about">About</a><a class="nav-cta" href="index.html#contact">Start a conversation</a></nav>
+  </header>
+  <main id="main">
+    <section class="page-hero section-shell reveal">
+      <div class="breadcrumbs"><a href="index.html">Portfolio</a><span>/</span><a href="index.html#work">Projects</a><span>/</span><span id="project-title-crumb">Case study</span></div>
+      <div class="project-hero" style="margin-top:42px">
+        <div>
+          <p class="eyebrow"><span></span> <b id="project-kicker">AI ENGINEERING CASE STUDY</b></p>
+          <h1 id="project-title">Home for AI</h1>
+          <p class="page-lede" id="project-lede"></p>
+          <div class="project-hero-meta" id="project-tags"></div>
+          <div class="hero-actions"><a class="button button-primary" id="project-repo" target="_blank" rel="noreferrer">Inspect repository <span>↗</span></a><a class="button button-secondary" href="#interactive-demo">Try browser demo</a></div>
+        </div>
+        <aside class="project-summary-card" id="project-summary"></aside>
+      </div>
+    </section>
+
+    <section class="page-layout">
+      <div class="case-grid reveal">
+        <article class="case-panel"><p class="eyebrow"><span></span> THE PROBLEM</p><h2>Why this exists</h2><p id="project-problem"></p></article>
+        <article class="case-panel"><p class="eyebrow"><span></span> ENGINEERING DECISIONS</p><h2>What the architecture protects</h2><ul id="project-decisions"></ul></article>
+      </div>
+
+      <section id="interactive-demo" class="reveal" style="margin-top:70px">
+        <div class="section-heading"><div><p class="eyebrow"><span></span> INTERACTIVE DEMO</p><h2>Test the core contract.</h2></div><p>This deterministic browser demonstration reflects the public architecture without requiring private keys, patient data, models, or a running backend.</p></div>
+        <div class="demo-shell">
+          <div class="demo-header"><strong>PUBLIC SHOWCASE · SAFE MODE</strong><span>● LOCAL BROWSER EXECUTION</span></div>
+          <div class="demo-body" id="demo-root"></div>
+        </div>
+      </section>
+
+      <section class="next-projects" id="next-projects" aria-label="More project case studies"></section>
+    </section>
+  </main>
+  <footer class="site-footer"><div><strong>Barry Clerjuste</strong><span>AI Engineer · Ottawa, Canada</span></div><p>Every demo is scoped to what a static browser can honestly prove.</p><span>© <span id="year"></span></span></footer>
+</body>
+</html>
