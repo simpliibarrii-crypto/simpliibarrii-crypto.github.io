@@ -1,0 +1,142 @@
+name: Runtime and Taste Audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install browser runtime
+        run: |
+          node --check app.js
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Serve and exercise every public surface
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/portfolio.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          for i in {1..30}; do curl -fsS http://127.0.0.1:4173 >/dev/null && break; sleep 1; done
+          node <<'JS'
+          const { chromium } = require('playwright');
+          const ids = ['home-for-ai','raven-ai','openclinical-ai','hermes-edge','raven-biocomputer','jspace-chain','langchain-nvidia'];
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const errors = [];
+            const open = async (path, name, viewport = { width: 1440, height: 1000 }) => {
+              const page = await browser.newPage({ viewportSize: viewport });
+              page.on('console', message => { if (message.type() === 'error') errors.push(`${name}: ${message.text()}`); });
+              page.on('pageerror', error => errors.push(`${name}: ${error.message}`));
+              await page.goto(`http://127.0.0.1:4173/${path}`, { waitUntil: 'networkidle' });
+              return page;
+            };
+
+            const home = await open('', 'home');
+            if (await home.locator('.project-card').count() !== 7) throw new Error('Homepage must expose seven project cards.');
+            await home.screenshot({ path: 'portfolio-home-desktop.png', fullPage: true });
+            await home.close();
+
+            const mobile = await open('', 'home-mobile', { width: 390, height: 844 });
+            const menu = mobile.locator('.menu-toggle');
+            if (await menu.count()) {
+              await menu.click();
+              if ((await menu.getAttribute('aria-expanded')) !== 'true') throw new Error('Mobile navigation did not open accessibly.');
+            }
+            await mobile.screenshot({ path: 'portfolio-home-mobile.png', fullPage: true });
+            await mobile.close();
+
+            const research = await open('research.html', 'research');
+            if ((await research.locator('.research-card').count()) < 6) throw new Error('Research archive is missing entries.');
+            await research.screenshot({ path: 'portfolio-research.png', fullPage: true });
+            await research.close();
+
+            for (const id of ids) {
+              const page = await open(`project.html?project=${id}`, id);
+              await page.locator('#run-demo').click();
+              const output = (await page.locator('#demo-output').textContent() || '').trim();
+              if (!output || output === '{}') throw new Error(`${id}: demo produced no output`);
+              const title = (await page.locator('#project-title').textContent() || '').trim();
+              if (!title) throw new Error(`${id}: project title missing`);
+              if (id === 'home-for-ai' || id === 'openclinical-ai') {
+                await page.screenshot({ path: `portfolio-${id}.png`, fullPage: true });
+              }
+              await page.close();
+            }
+
+            const notFound = await open('404.html', '404');
+            if (!(await notFound.locator('body').innerText()).includes('404')) throw new Error('Branded 404 page is missing its status.');
+            await notFound.close();
+
+            await browser.close();
+            if (errors.length) throw new Error(`Browser errors:\n${errors.join('\n')}`);
+          })();
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: portfolio-visual-smoke
+          path: portfolio-*.png
+
+  taste-accessibility-and-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate markup, local links, brand, and maturity language
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlparse
+          import re
+
+          html_files = list(Path('.').glob('*.html'))
+          assert html_files
+          local_targets = {path.name for path in html_files} | {'styles.css', 'app.js', 'sitemap.xml', 'robots.txt'}
+          ids_by_file = {}
+
+          class AuditParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.ids = []
+                  self.links = []
+                  self.images_without_alt = []
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if 'id' in attrs: self.ids.append(attrs['id'])
+                  if tag == 'a' and 'href' in attrs: self.links.append(attrs['href'])
+                  if tag == 'img' and not attrs.get('alt'): self.images_without_alt.append(attrs.get('src', '<unknown>'))
+
+          for path in html_files:
+              parser = AuditParser()
+              parser.feed(path.read_text(encoding='utf-8'))
+              assert len(parser.ids) == len(set(parser.ids)), f'{path}: duplicate IDs'
+              assert not parser.images_without_alt, f'{path}: images missing alt text: {parser.images_without_alt}'
+              for href in parser.links:
+                  if href.startswith(('#', 'mailto:', 'tel:', 'http://', 'https://')): continue
+                  target = urlparse(href).path or path.name
+                  if target: assert Path(target).exists() or target in local_targets, f'{path}: broken local link {href}'
+
+          css = Path('styles.css').read_text(encoding='utf-8').lower()
+          js = Path('app.js').read_text(encoding='utf-8').lower()
+          for token in ('#050505', '#c8273f', '#c9ad7d', '#f4efe7'):
+              assert token in css, f'missing canonical brand token {token}'
+          assert 'prefers-reduced-motion' in css
+          assert 'aria-expanded' in Path('index.html').read_text(encoding='utf-8').lower() + js
+          canonical = ['active product', 'active research platform', 'development-preview mvp', 'alpha research software', 'private research prototype', 'attributed integration study']
+          for label in canonical:
+              assert label in js or label in ''.join(p.read_text(encoding='utf-8').lower() for p in html_files), f'missing canonical maturity label {label}'
+          assert 'barry-ai-public.simpliibarrii.chatgpt.site' not in js + css + ''.join(p.read_text(encoding='utf-8').lower() for p in html_files)
+          print('Portfolio taste, accessibility, and link contract passed.')
+          PY
