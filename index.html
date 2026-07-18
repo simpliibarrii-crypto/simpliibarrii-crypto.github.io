@@ -3,87 +3,207 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Raven AI - Open-source AI infrastructure</title>
-  <meta name="description" content="Raven AI is an open-source biology and healthcare agent platform by Barry Clerjuste." />
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦‍⬛</text></svg>">
-  <!-- OpenGraph -->
-  <meta property="og:title" content="Raven AI - Open-source AI infrastructure" />
-  <meta property="og:description" content="Raven AI is an open-source biology and healthcare agent platform built for researchers, labs, startups, classrooms, and clinical teams." />
-  <meta property="og:url" content="https://simpliibarrii-crypto.github.io/" />
+  <meta name="theme-color" content="#070707" />
+  <title>Barry Clerjuste | AI Engineer</title>
+  <meta name="description" content="Barry Clerjuste builds local-first, auditable AI systems for science, healthcare, edge computing, and agent orchestration." />
+  <meta property="og:title" content="Barry Clerjuste | AI Engineer" />
+  <meta property="og:description" content="Local-first AI systems that can explain their work." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://simpliibarrii-crypto.github.io/assets/raven-logo.svg" />
-  <!-- Twitter Card -->
+  <meta property="og:url" content="https://simpliibarrii-crypto.github.io/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Raven AI - Open-source AI infrastructure" />
-  <meta name="twitter:description" content="Raven AI is an open-source biology and healthcare agent platform built for researchers, labs, startups, classrooms, and clinical teams." />
-  <meta name="twitter:image" content="https://simpliibarrii-crypto.github.io/assets/raven-logo.svg" />
-  <style>
-    :root { --bg:#05060A; --panel:#0D1117; --ink:#F4F4F5; --muted:#8B949E; --red:#C8102E; --line:#21262D; }
-    * { box-sizing: border-box; }
-    body { margin:0; background: radial-gradient(circle at 18% 12%, #260713 0, #05060A 38%, #000 100%); color:var(--ink); font-family: Avenir Next, Segoe UI, Helvetica, Arial, sans-serif; }
-    a { color: inherit; }
-    .wrap { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
-    header { padding:32px 0 10px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-    .brand { display:flex; align-items:center; gap:14px; font-weight:800; letter-spacing:.08em; }
-    .brand img { width:44px; height:44px; border-radius:12px; }
-    nav { display:flex; gap:18px; color:var(--muted); font-size:14px; }
-    /* Hamburger button — hidden by default */
-    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-    .hamburger span { display:block; width:22px; height:2px; background:var(--ink); border-radius:2px; transition:transform .2s; }
-    /* Mobile nav — hidden by default */
-    .mobile-nav { display:none; flex-direction:column; gap:12px; padding:16px 0; color:var(--muted); font-size:14px; border-top:1px solid var(--line); }
-    .mobile-nav a { text-decoration:none; }
-    .hero { padding:72px 0 84px; display:grid; grid-template-columns:1.08fr .92fr; gap:48px; align-items:center; }
-    .eyebrow { color:var(--red); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing:.18em; font-size:13px; }
-    h1 { margin:16px 0; font-size: clamp(46px, 8vw, 88px); line-height:.94; letter-spacing:-.06em; }
-    p { color:#C9D1D9; line-height:1.7; font-size:18px; }
-    .cta { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
-    .btn { padding:13px 18px; border:1px solid var(--line); border-radius:999px; text-decoration:none; background:#0D1117; }
-    .btn.primary { background:var(--red); border-color:var(--red); color:white; }
-    .visual { border:1px solid var(--line); border-radius:28px; background:linear-gradient(145deg,#0D1117,#05060A); overflow:hidden; box-shadow:0 30px 90px rgba(200,16,46,.15); }
-    .visual img { width:100%; display:block; }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:30px 0 80px; }
-    .card { background:rgba(13,17,23,.72); border:1px solid var(--line); border-radius:22px; padding:24px; min-height:190px; }
-    .card h3 { margin:0 0 10px; font-size:20px; }
-    .card p { font-size:15px; color:var(--muted); }
-    .section { padding:22px 0 80px; }
-    .section h2 { font-size:36px; margin:0 0 18px; letter-spacing:-.03em; }
-    footer { border-top:1px solid var(--line); color:var(--muted); padding:28px 0 40px; font-size:14px; }
-    @media(max-width:850px) {
-      .hero,.grid { grid-template-columns:1fr; }
-      nav.desktop-nav { display:none; }
-      .hamburger { display:flex; }
-      .mobile-nav.open { display:flex; }
-    }
-  </style>
+  <link rel="canonical" href="https://simpliibarrii-crypto.github.io/" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand"><img src="assets/raven-logo.svg" alt="Raven AI logo"/> RAVEN AI</div>
-      <nav class="desktop-nav"><a href="https://barry-ai-public.simpliibarrii.chatgpt.site">Portfolio</a><a href="https://www.linkedin.com/in/barry-clerjuste-4ab72b226">LinkedIn</a><a href="https://github.com/simpliibarrii-crypto/raven-ai">Raven</a><a href="https://github.com/simpliibarrii-crypto/openclinical-ai">Clinical</a><a href="https://github.com/simpliibarrii-crypto/home-for-ai">Home for AI</a></nav>
-      <button class="hamburger" aria-label="Toggle navigation" onclick="this.classList.toggle('active');document.querySelector('.mobile-nav').classList.toggle('open')"><span></span><span></span><span></span></button>
-    </header>
-    <nav class="mobile-nav"><a href="https://barry-ai-public.simpliibarrii.chatgpt.site">Portfolio</a><a href="https://www.linkedin.com/in/barry-clerjuste-4ab72b226">LinkedIn</a><a href="https://github.com/simpliibarrii-crypto/raven-ai">Raven</a><a href="https://github.com/simpliibarrii-crypto/openclinical-ai">Clinical</a><a href="https://github.com/simpliibarrii-crypto/home-for-ai">Home for AI</a></nav>
-    <main>
-      <section class="hero">
-        <div>
-          <div class="eyebrow">AGENTIC AI · COMPUTATIONAL BIOLOGY · HEALTHCARE SYSTEMS</div>
-          <h1>Open-source infrastructure for scientific AI.</h1>
-          <p>Raven AI is a biology and healthcare agent platform built for researchers, labs, startups, classrooms, and clinical teams that need affordable, inspectable, reproducible AI systems.</p>
-          <div class="cta"><a class="btn primary" href="https://github.com/simpliibarrii-crypto/raven-ai">Explore Raven AI</a><a class="btn" href="https://barry-ai-public.simpliibarrii.chatgpt.site">View full portfolio</a><a class="btn" href="https://github.com/simpliibarrii-crypto">GitHub profile</a></div>
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="identity" href="index.html" aria-label="Barry Clerjuste home">
+      <span class="identity-mark">BC</span>
+      <span class="identity-copy"><strong>Barry Clerjuste</strong><small>AI Engineer</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="research.html">Research</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#contact">Start a conversation</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> AI ENGINEERING · AGENT SYSTEMS · APPLIED RESEARCH</p>
+        <h1>I build AI systems that can <em>explain their work.</em></h1>
+        <p class="hero-lede">Local-first agents, evidence-linked reasoning, edge inference, and safety-aware healthcare prototypes. Designed to be inspected, tested, and trusted.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore live demos <span>↗</span></a>
+          <a class="button button-secondary" href="research.html">Read the research</a>
         </div>
-        <div class="visual"><img src="assets/dna-raven-mark.svg" alt="DNA and Raven visual identity"/></div>
-      </section>
-      <section class="grid">
-        <article class="card"><h3>Raven Bio</h3><p>Agents for genomics, transcriptomics, protein structure, literature grounding, protocols, and reproducible workflows.</p></article>
-        <article class="card"><h3>Raven Clinical</h3><p>PHI-aware deployment infrastructure, consent, audit logs, evidence retrieval, calculators, and healthcare governance.</p></article>
-        <article class="card"><h3>Home for AI</h3><p>A local-first orchestration environment for running agent workflows across desktop, edge, and private infrastructure.</p></article>
-      </section>
-      <section class="section"><h2>Built for trust, not demos.</h2><p>Every part of the ecosystem is moving toward evidence-linked outputs, provenance trails, issue templates, contribution guidelines, CI, architecture docs, and a coherent research-lab identity.</p></section>
-    </main>
-    <footer>© 2026 Barry Clerjuste. Raven AI is open-source research infrastructure.</footer>
-  </div>
+        <div class="availability"><span class="status-light"></span> Open to AI engineering roles, research collaborations, and ambitious product teams.</div>
+      </div>
+
+      <div class="hero-system reveal" aria-label="Raven AI ecosystem visualization">
+        <div class="system-grid"></div>
+        <div class="system-orbit orbit-a"></div>
+        <div class="system-orbit orbit-b"></div>
+        <div class="system-core"><span>R</span><small>RAVEN CORE</small></div>
+        <button class="system-node node-home" type="button" data-project-jump="home-for-ai"><strong>HOME</strong><small>orchestration</small></button>
+        <button class="system-node node-hermes" type="button" data-project-jump="hermes-edge"><strong>HERMES</strong><small>edge runtime</small></button>
+        <button class="system-node node-clinical" type="button" data-project-jump="openclinical-ai"><strong>CLINICAL</strong><small>consent layer</small></button>
+        <button class="system-node node-bio" type="button" data-project-jump="raven-biocomputer"><strong>BIO</strong><small>bounded compute</small></button>
+        <div class="system-caption">One ecosystem. Multiple deployment surfaces. Shared evidence and safety contracts.</div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Core technology stack">
+      <span>Python</span><span>FastAPI</span><span>TypeScript</span><span>React</span><span>Rust</span><span>Tauri</span><span>Docker</span><span>GitHub Actions</span><span>Local AI</span>
+    </section>
+
+    <section class="section-shell work-section" id="work">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow"><span></span> SELECTED SYSTEMS</p><h2>Products, not pitch decks.</h2></div>
+        <p>Each project has a working browser demonstration, architecture notes, source context, and an honest maturity label.</p>
+      </div>
+
+      <div class="project-toolbar reveal">
+        <div class="filter-group" role="group" aria-label="Filter projects">
+          <button class="filter-chip active" type="button" data-filter="all">All systems</button>
+          <button class="filter-chip" type="button" data-filter="agents">Agents</button>
+          <button class="filter-chip" type="button" data-filter="health">Health & science</button>
+          <button class="filter-chip" type="button" data-filter="edge">Edge & local</button>
+          <button class="filter-chip" type="button" data-filter="research">Research</button>
+        </div>
+        <span class="project-count"><strong id="visible-project-count">7</strong> case studies</span>
+      </div>
+
+      <div class="project-grid" id="project-grid">
+        <article class="project-card project-card-featured reveal" data-category="agents edge">
+          <div class="project-topline"><span class="project-index">01</span><span class="project-status status-active">Flagship redesign</span></div>
+          <div class="project-icon home-icon">H</div>
+          <h3>Home for AI</h3>
+          <p>A sovereign desktop command center for coordinating agents, local models, knowledge vaults, and evidence traces.</p>
+          <ul class="project-proof"><li>Tauri + React desktop shell</li><li>FastAPI orchestration backend</li><li>Browser-safe showcase mode</li></ul>
+          <div class="project-tags"><span>React</span><span>TypeScript</span><span>Rust</span><span>FastAPI</span></div>
+          <a class="card-link" href="project.html?project=home-for-ai">Launch case study <span>↗</span></a>
+        </article>
+
+        <article class="project-card reveal" data-category="agents health research">
+          <div class="project-topline"><span class="project-index">02</span><span class="project-status status-active">Active</span></div>
+          <div class="project-icon raven-icon">R</div>
+          <h3>Raven AI</h3>
+          <p>A local-first agent platform for evidence graphs, token-efficient workflows, and reproducible scientific automation.</p>
+          <div class="project-tags"><span>Python</span><span>Agents</span><span>Evidence</span></div>
+          <a class="card-link" href="project.html?project=raven-ai">Try evidence demo <span>↗</span></a>
+        </article>
+
+        <article class="project-card reveal" data-category="health agents">
+          <div class="project-topline"><span class="project-index">03</span><span class="project-status status-preview">MVP preview</span></div>
+          <div class="project-icon clinical-icon">+</div>
+          <h3>OpenClinical AI</h3>
+          <p>A consent-aware clinical runtime with signed model manifests, tenant boundaries, audit logs, and a PSW handoff workflow.</p>
+          <div class="project-tags"><span>FastAPI</span><span>Consent</span><span>Audit</span></div>
+          <a class="card-link" href="project.html?project=openclinical-ai">Run handoff demo <span>↗</span></a>
+        </article>
+
+        <article class="project-card reveal" data-category="edge agents">
+          <div class="project-topline"><span class="project-index">04</span><span class="project-status status-active">v0.3</span></div>
+          <div class="project-icon hermes-icon">H</div>
+          <h3>Hermes Edge</h3>
+          <p>A GPU-first local agent runtime that routes tools and models according to device capability, memory, and benchmark evidence.</p>
+          <div class="project-tags"><span>LiteRT</span><span>Gemma</span><span>On-device</span></div>
+          <a class="card-link" href="project.html?project=hermes-edge">Test route policy <span>↗</span></a>
+        </article>
+
+        <article class="project-card reveal" data-category="health research agents">
+          <div class="project-topline"><span class="project-index">05</span><span class="project-status status-preview">Alpha</span></div>
+          <div class="project-icon bio-icon">DNA</div>
+          <h3>Raven BioComputer</h3>
+          <p>A bounded, auditable workstation for deterministic biology tools, private run directories, and reproducible receipts.</p>
+          <div class="project-tags"><span>Bioinformatics</span><span>MCP</span><span>Docker</span></div>
+          <a class="card-link" href="project.html?project=raven-biocomputer">Analyze a sequence <span>↗</span></a>
+        </article>
+
+        <article class="project-card reveal" data-category="research agents">
+          <div class="project-topline"><span class="project-index">06</span><span class="project-status status-private">Private research</span></div>
+          <div class="project-icon jspace-icon">J</div>
+          <h3>JSpace Chain</h3>
+          <p>An observable, capacity-bounded global-workspace control plane for agent routing, risk gates, and tamper-evident decisions.</p>
+          <div class="project-tags"><span>Interpretability</span><span>Safety</span><span>Audit</span></div>
+          <a class="card-link" href="project.html?project=jspace-chain">Inspect policy demo <span>↗</span></a>
+        </article>
+
+        <article class="project-card reveal" data-category="agents edge research">
+          <div class="project-topline"><span class="project-index">07</span><span class="project-status status-study">Integration study</span></div>
+          <div class="project-icon nvidia-icon">N</div>
+          <h3>LangChain NVIDIA Study</h3>
+          <p>A technical exploration of NVIDIA endpoints, TensorRT, LangGraph execution, agentic RAG, and sandboxed tool workflows.</p>
+          <div class="project-tags"><span>LangChain</span><span>NVIDIA</span><span>RAG</span></div>
+          <a class="card-link" href="project.html?project=langchain-nvidia">Explore routing demo <span>↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell approach-section" id="approach">
+      <div class="section-heading reveal">
+        <div><p class="eyebrow"><span></span> ENGINEERING APPROACH</p><h2>Useful intelligence needs structure.</h2></div>
+        <p>The work is organized around constraints that matter after the prototype glow fades.</p>
+      </div>
+      <div class="principle-grid">
+        <article class="principle-card reveal"><span>01</span><h3>Evidence before confidence</h3><p>Claims should carry sources, risk labels, verification steps, and an inspectable trace.</p></article>
+        <article class="principle-card reveal"><span>02</span><h3>Local before remote</h3><p>Deterministic tools and on-device models handle suitable work before expensive cloud escalation.</p></article>
+        <article class="principle-card reveal"><span>03</span><h3>Boundaries before autonomy</h3><p>Consent, tenant isolation, policy gates, and human approval define what an agent is allowed to do.</p></article>
+        <article class="principle-card reveal"><span>04</span><h3>Benchmarks before claims</h3><p>Performance language is tied to device, backend, memory, thermal state, and reproducible metrics.</p></article>
+      </div>
+    </section>
+
+    <section class="research-preview section-shell">
+      <div class="research-stage reveal">
+        <div>
+          <p class="eyebrow"><span></span> RESEARCH & PAPERS</p>
+          <h2>From papers to working control planes.</h2>
+          <p>I study current AI systems research, extract the engineering implications, and build testable reference implementations with careful attribution and scoped claims.</p>
+          <a class="button button-primary" href="research.html">Open research archive <span>↗</span></a>
+        </div>
+        <div class="paper-stack" aria-hidden="true">
+          <div class="paper paper-one"><small>WORKING PAPER 01</small><strong>Observable Global Workspaces for Auditable Agents</strong><span>JSpace Chain</span></div>
+          <div class="paper paper-two"><small>MANUSCRIPT 02</small><strong>Evidence Graphs for Scientific Agent Systems</strong><span>Raven AI</span></div>
+          <div class="paper paper-three"><small>ENGINEERING REPORT 03</small><strong>Benchmark-Gated Routing at the Edge</strong><span>Hermes Edge</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell about-section" id="about">
+      <div class="about-grid reveal">
+        <div class="portrait-frame" aria-label="Barry Clerjuste monogram portrait"><span>BC</span><small>OTTAWA · CANADA</small></div>
+        <div class="about-copy">
+          <p class="eyebrow"><span></span> ABOUT</p>
+          <h2>Building the bridge from frontline reality to serious AI engineering.</h2>
+          <p>My work sits where agent architecture, local inference, scientific reproducibility, and healthcare safety meet. I bring practical care context into systems that are deliberately cautious about evidence, consent, privacy, and human review.</p>
+          <p>I am developing my career as an AI engineer through open-source systems, applied research, and product-focused prototypes that employers can inspect rather than merely read about.</p>
+          <div class="about-links"><a href="https://github.com/simpliibarrii-crypto">GitHub ↗</a><a href="https://www.linkedin.com/in/barry-clerjuste-4ab72b226">LinkedIn ↗</a><a href="https://huggingface.co/bclermo">Hugging Face ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section section-shell" id="contact">
+      <div class="contact-card reveal">
+        <p class="eyebrow"><span></span> AVAILABLE FOR THE RIGHT MISSION</p>
+        <h2>Let’s build intelligence with a spine.</h2>
+        <p>AI engineering, agent systems, applied research, local inference, healthcare prototypes, and open-source collaboration.</p>
+        <div class="contact-actions"><a class="button button-primary" href="mailto:simpliibarrii@outlook.com">Email Barry <span>↗</span></a><a class="button button-secondary" href="https://www.linkedin.com/in/barry-clerjuste-4ab72b226">Connect on LinkedIn</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><strong>Barry Clerjuste</strong><span>AI Engineer · Ottawa, Canada</span></div>
+    <p>Built as an inspectable portfolio, not a decorative résumé.</p>
+    <span>© <span id="year"></span></span>
+  </footer>
 </body>
 </html>
